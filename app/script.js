@@ -6,6 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     //Product S.no starts from 1
     let productCount = 0;
 
+    function updateSerialNumbers() {
+        const tbody = productsTable.querySelector('tbody') || productsTable;
+        const rows = tbody.querySelectorAll('tr');
+        rows.forEach((row, index) => {
+            const firstCell = row.querySelector('td');
+            if (firstCell) firstCell.innerText = index + 1;
+        });
+        productCount = rows.length;
+    }
+
     saveBtn.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -44,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Append new row into the table
         const tbody = productsTable.querySelector('tbody') || productsTable;
         tbody.appendChild(newRow);
+        updateSerialNumbers();
 
         //Empty all fields after save
 
@@ -61,7 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Delete Button
         if (e.target.classList.contains('delete')) {
             const row = e.target.closest('tr');
-            if (row) row.remove();
+            if (row) {
+                row.remove();
+                updateSerialNumbers();
+            }
         }
 
         // Edit Button
@@ -78,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Remove the row so it can be "saved" again as an update
                 row.remove();
+                updateSerialNumbers();
             }
         }
     });
