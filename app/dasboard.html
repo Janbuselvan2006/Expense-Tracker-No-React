@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+     <title></title>
+     <link rel="stylesheet" href="style.css">
+   </head> 
+   
+   <body>
+     <div class="container">
+       <div class="top">
+         <h1>Products</h1>
+         
+         <button class="add-btn">
+           + Add Product
+         </button>
+       </div>
+       
+       <!---Search filter--->
+       
+       <div class="search box">
+         
+         <input type="text" placeholder="Search Products...">
+         
+         <select>
+           <option>All catigries</option>
+           <option>Vegitabes</option>
+           <option>Fruits and nuts</option>
+           <option>Dairy & creams</option>
+           <option>Packaged foods</option>
+           <option>Stables</option>
+         </select>
+         
+       </div>
+       
+       <!---Tables---->
+       
+       <table id="products-table">
+         <tr>
+           <th>#</th>
+           <th>Product name</th>
+           <th>Price</th>
+           <th>Old Price</th>
+           <th>Category</th>
+           <th>Is Active</th>
+           <th>Actions</th>
+         </tr>
+
+       <!--form--->
+       
+       <div class="form-box">
+         <h2>Add / Edit Product</h2>
+         
+         <div class="form-group">
+           <input type="text" id="product-name" placeholder="Product name">
+           <input type="number" id="product-price" placeholder="Price">
+           <input type="number" id="product-old-price" placeholder="old Price">
+           <input type="number" id="product-qty" placeholder="Qty">
+           
+           <select id="product-category">
+             <option>Select Category</option>
+             <option>Vegetables</option>
+             <option>Fruits & Nuts</option>
+             <option>Dairy & creams</option>
+             <option>Packages Food</option>
+             <option>Staples</option>
+           </select>
+           
+         </div>
+         
+         <textarea id="product-desc" placeholder="Description"></textarea>
+         <div class="save-product">
+           <button class="Reset" id="save-product-btn">
+             Save Product
+           </button>
+           
+         </div>
+         
+       </div>
+       
+     </div>
+     
+     <script src="script.js"></script>
+   </body>
+</html>
