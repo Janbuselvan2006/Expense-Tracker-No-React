@@ -96,4 +96,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // Search functionality
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const tbody = productsTable.querySelector('tbody') || productsTable;
+            const rows = tbody.querySelectorAll('tr');
+            
+            rows.forEach(row => {
+                // Skip the header row
+                if (row.querySelector('th')) return;
+                
+                const productNameCell = row.querySelectorAll('td')[1];
+                if (productNameCell) {
+                    const productName = productNameCell.innerText.toLowerCase();
+                    if (productName.includes(searchTerm)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    }
 });
